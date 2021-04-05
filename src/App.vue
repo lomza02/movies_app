@@ -3,17 +3,20 @@
     <h1 class="title">Wyszukiwarka filmów</h1>
     <Search @searchMovie="searchMovie" />
     <Message :message="message" />
+    <MovieItem v-for="movie in movies" v-bind:key="movie.id" :movie="movie" />
   </div>
 </template>
 
 <script>
 import Search from './components/Search';
 import Message from './components/Message';
+import MovieItem from './components/MovieItem';
 import { fetchMovies } from './methods/fetchMovies';
 export default {
   components: {
     Search,
     Message,
+    MovieItem,
   },
   data() {
     return {
