@@ -2,15 +2,18 @@
   <div id="app">
     <h1 class="title">Wyszukiwarka filmów</h1>
     <Search @searchMovie="searchMovie" />
+    <Message :message="message" />
   </div>
 </template>
 
 <script>
 import Search from './components/Search';
+import Message from './components/Message';
 import { fetchMovies } from './methods/fetchMovies';
 export default {
   components: {
     Search,
+    Message,
   },
   data() {
     return {
@@ -39,7 +42,6 @@ export default {
         this.currentPage,
         movie
       );
-      console.log(results);
       this.message = {
         type: type,
         text: text,
