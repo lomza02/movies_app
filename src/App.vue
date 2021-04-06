@@ -3,6 +3,11 @@
     <h1 class="title">Wyszukiwarka filmów</h1>
     <Search @searchMovie="searchMovie" />
     <Message :message="message" />
+    <Sort
+      :movies="movies"
+      :sortMoviesBy="sortMoviesBy"
+      @handleSort="sortMovies"
+    />
     <Pagination
       :movies="movies"
       :currentPage="currentPage"
@@ -24,6 +29,7 @@ import Search from './components/Search';
 import Message from './components/Message';
 import MovieItem from './components/MovieItem';
 import Pagination from './components/Pagination';
+import Sort from './components/Sort';
 import { fetchMovies } from './methods/fetchMovies';
 import { sortMoviesBy } from './methods/sortMoviesBy';
 export default {
@@ -32,6 +38,7 @@ export default {
     Message,
     MovieItem,
     Pagination,
+    Sort,
   },
   data() {
     return {
@@ -64,6 +71,10 @@ export default {
       };
       this.movies = sortMoviesBy(this.sortMoviesBy, results);
       this.currentPage = currentPage;
+    },
+    sortMovies(sortBy) {
+      this.sortMoviesBy = sortBy;
+      this.movies = sortMoviesBy(sortBy, this.movies);
     },
     searchMovie: async function(movie) {
       this.currentPage = 1;
