@@ -38,23 +38,21 @@ export default {
 @import '../variables';
 .search {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   min-height: 100px;
   margin: $margin;
-  @include tablet {
-    flex-direction: column;
-  }
   &__input {
     font-size: $font-size-xl;
     padding: 5px 10px;
     width: $width-mobile;
     border: 2px solid $accent-color;
+    margin: $margin;
     @include tablet {
       width: $width-tablet;
       font-size: $font-size-xxxl;
-      margin: $margin;
     }
     @include desktop {
       font-size: $font-size-xl;
@@ -65,8 +63,8 @@ export default {
     font-size: $font-size-xs;
     font-weight: 600;
     letter-spacing: 1px;
+    margin-bottom: $margin-bottom;
     @include tablet {
-      margin-bottom: $margin-bottom;
       font-size: $font-size-xl;
     }
     @include desktop {
