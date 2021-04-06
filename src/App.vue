@@ -3,7 +3,19 @@
     <h1 class="title">Wyszukiwarka filmów</h1>
     <Search @searchMovie="searchMovie" />
     <Message :message="message" />
+    <Pagination
+      :movies="movies"
+      :currentPage="currentPage"
+      :lastPage="lastPage"
+      @handlePagination="handlePagination"
+    />
     <MovieItem v-for="movie in movies" v-bind:key="movie.id" :movie="movie" />
+    <Pagination
+      :movies="movies"
+      :currentPage="currentPage"
+      :lastPage="lastPage"
+      @handlePagination="handlePagination"
+    />
   </div>
 </template>
 
@@ -11,12 +23,15 @@
 import Search from './components/Search';
 import Message from './components/Message';
 import MovieItem from './components/MovieItem';
+import Pagination from './components/Pagination';
 import { fetchMovies } from './methods/fetchMovies';
+import { sortMoviesBy } from './methods/sortMoviesBy';
 export default {
   components: {
     Search,
     Message,
     MovieItem,
+    Pagination,
   },
   data() {
     return {
@@ -33,6 +48,23 @@ export default {
     };
   },
   methods: {
+    handlePagination: async function(currentPage) {
+      this.movies = [];
+      this.message = {
+        type: 'loading',
+        text: 'Ładowanie filmów...',
+      };
+      const { results, type, text } = await fetchMovies(
+        currentPage,
+        this.movie
+      );
+      this.message = {
+        type: type,
+        text: text,
+      };
+      this.movies = sortMoviesBy(this.sortMoviesBy, results);
+      this.currentPage = currentPage;
+    },
     searchMovie: async function(movie) {
       this.currentPage = 1;
       this.movies = [];
