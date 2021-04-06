@@ -1,6 +1,5 @@
-#Movie App
+# Movie App
 ### Find Your Favorite Movies!
-
 ## Used Technologies
 
 - Vue.js 3.0.0
