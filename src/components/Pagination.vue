@@ -63,6 +63,12 @@ export default {
     font-size: $font-size-xl;
     line-height: 30px;
     padding: 0 15px;
+    @include tablet {
+      font-size: $font-size-xxxl;
+    }
+    @include desktop {
+      font-size: $font-size-xl;
+    }
   }
   &__button {
     min-width: 30px;
@@ -75,6 +81,12 @@ export default {
     cursor: pointer;
     &:hover {
       background-color: $main-color-light;
+    }
+    @include tablet {
+      font-size: $font-size-xxxl;
+    }
+    @include desktop {
+      font-size: $font-size-xl;
     }
   }
 }

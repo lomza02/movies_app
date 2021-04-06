@@ -112,11 +112,23 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   color: $accent-color;
   margin: 30px 0;
+  @include desktop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 .title {
   width: 100%;
   font-size: $font-size-xl;
   text-align: center;
   text-transform: uppercase;
+  @include tablet {
+    font-size: $font-size-xxxxl;
+  }
+  @include desktop {
+    font-size: $font-size-xxxl;
+  }
 }
 </style>

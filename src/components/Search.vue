@@ -43,27 +43,54 @@ export default {
   flex-wrap: wrap;
   min-height: 100px;
   margin: $margin;
+  @include tablet {
+    flex-direction: column;
+  }
   &__input {
     font-size: $font-size-xl;
     padding: 5px 10px;
-    width: 300px;
+    width: $width-mobile;
+    border: 2px solid $accent-color;
+    @include tablet {
+      width: $width-tablet;
+      font-size: $font-size-xxxl;
+      margin: $margin;
+    }
+    @include desktop {
+      font-size: $font-size-xl;
+    }
   }
   &__error {
     color: red;
     font-size: $font-size-xs;
     font-weight: 600;
     letter-spacing: 1px;
+    @include tablet {
+      margin-bottom: $margin-bottom;
+      font-size: $font-size-xl;
+    }
+    @include desktop {
+      font-size: $font-size-xm;
+    }
   }
   &__button {
     background-color: $accent-color;
     color: white;
     text-transform: uppercase;
-    width: 300px;
+    width: $width-mobile;
     font-weight: 600;
     font-size: $font-size-xm;
     padding: 10px 15px;
     border: none;
     cursor: pointer;
+    @include tablet {
+      margin-bottom: $margin-bottom;
+      width: $width-tablet;
+      font-size: $font-size-xxxl;
+    }
+    @include desktop {
+      font-size: $font-size-xl;
+    }
   }
 }
 </style>

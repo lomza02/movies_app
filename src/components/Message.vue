@@ -23,5 +23,11 @@ export default {
 .message {
   font-size: $font-size-xl;
   text-align: center;
+  @include tablet {
+    font-size: $font-size-xxxl;
+  }
+  @include desktop {
+    font-size: $font-size-xl;
+  }
 }
 </style>

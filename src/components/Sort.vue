@@ -57,10 +57,20 @@ export default {
   justify-content: center;
   align-items: center;
   &__select {
-    width: 300px;
+    width: $width-mobile;
     font-size: $font-size-xm;
     padding: 5px 10px;
-    margin-bottom: 15px;
+    margin-bottom: $margin-bottom;
+    border: 1px solid $accent-color;
+    background-color: white;
+    @include tablet {
+      margin-bottom: $margin-bottom;
+      width: $width-tablet;
+      font-size: $font-size-xxl;
+    }
+    @include desktop {
+      font-size: $font-size-xm;
+    }
   }
 }
 </style>
