@@ -21,11 +21,16 @@
         Szczegóły
       </button>
     </div>
+    <Details v-if="detailsAreVisible" :id="id" />
   </div>
 </template>
 
 <script>
+import Details from './Details';
 export default {
+  components: {
+    Details,
+  },
   props: ['movie'],
   data() {
     return {
