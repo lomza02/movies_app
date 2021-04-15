@@ -73,7 +73,6 @@ export default {
     min-height: 450px;
     @include tablet {
       width: $width-tablet;
-      min-height: 675px;
     }
     @include desktop {
       width: $width-mobile;
