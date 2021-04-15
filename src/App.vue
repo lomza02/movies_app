@@ -55,7 +55,7 @@ export default {
     };
   },
   methods: {
-    handlePagination: async function(currentPage) {
+    handlePagination: function(currentPage) {
       this.movies = [];
       this.message = {
         type: 'loading',
